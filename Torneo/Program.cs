@@ -4,7 +4,32 @@ class Program
 {
     public static void Main()
     {
-        Inici();
+        int opcioMenu = 0;
+        int nouValor = 0;
+        int suma = 0;
+        int media = 0;
+        int mayor = 0;
+        int contador = 0;
+        do
+        {
+            opcioMenu = EscollirOpcio();
+            if (opcioMenu == 1)
+            {
+                nouValor = InsertarValor();
+                contador++;
+                if (nouValor > mayor)
+                    mayor = nouValor;
+                suma += nouValor;
+                media = suma / contador;
+                continue;
+            }
+            else if (opcioMenu == 2)
+            {
+                VeureResum(contador, suma, media, mayor);
+                continue;
+            }
+
+        } while (opcioMenu != 0);
     }
 
     static int EscollirOpcio()
@@ -40,10 +65,8 @@ class Program
     static int InsertarValor()
     {
         int valor = 0;
-
         do
         {
-
             Console.Write("Inserta un nou valor: ");
             string? resposta = Console.ReadLine();
             if (!int.TryParse(resposta, out valor))
@@ -77,35 +100,5 @@ class Program
         {
             Console.WriteLine("Encara no s'han introduit dades");
         }
-    }
-
-    static void Inici()
-    {
-        int opcioMenu = 0;
-        int nouValor = 0;
-        int suma = 0;
-        int media = 0;
-        int mayor = 0;
-        int contador = 0;
-        do
-        {
-            opcioMenu = EscollirOpcio();           
-            if (opcioMenu == 1)
-            {
-                nouValor = InsertarValor();
-                contador++;
-                if (nouValor > mayor)
-                    mayor = nouValor;
-                suma += nouValor;
-                media = suma / contador;
-                continue;
-            } 
-            else if (opcioMenu == 2)
-            {
-                VeureResum(contador, suma, media, mayor);
-                continue;
-            }
-
-        } while (opcioMenu != 0);
-    }
+    }  
 }
