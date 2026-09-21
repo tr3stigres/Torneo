@@ -7,7 +7,7 @@ class Program
         int opcioMenu = 0;
         int nouValor = 0;
         int suma = 0;
-        int media = 0;
+        double media = 0;
         int mayor = 0;
         int contador = 0;
         do
@@ -15,12 +15,12 @@ class Program
             opcioMenu = EscollirOpcio();
             if (opcioMenu == 1)
             {
-                nouValor = InsertarValor();
+                nouValor = LeerPuntuacion();
                 contador++;
                 if (nouValor > mayor)
                     mayor = nouValor;
                 suma += nouValor;
-                media = suma / contador;
+                media = (double)suma / contador;
                 continue;
             }
             else if (opcioMenu == 2)
@@ -62,7 +62,7 @@ class Program
 
     }
 
-    static int InsertarValor()
+    static int LeerPuntuacion()
     {
         int valor = 0;
         do
@@ -87,7 +87,7 @@ class Program
         return valor;
     }
 
-    static void VeureResum(int contador, int suma, int media, int mayor)
+    static void VeureResum(int contador, int suma, double media, int mayor)
     {
         if(contador > 0)
         {
